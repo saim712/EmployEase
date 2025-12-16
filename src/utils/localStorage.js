@@ -4,20 +4,34 @@ const employeesData = [
     name: "Ali",
     email: "ali@mail.com",
     password: "1234",
+    taskCount: {
+      active: 1,
+      failed: 0,
+      completed: 1,
+      newTask: 1 
+    },
     tasks: [
       {
         id: 101,
-        title: "Create Landing Page",
-        category: "development",
-        description: "Build a responsive homepage layout with hero section.",
-        status: false
+        taskTitle: "Create Landing Page",
+        category: "Development",
+        taskDescription: "Build a responsive homepage layout with hero section.",
+        taskDate: "2025-12-15",
+        active: true,
+        newTask: true,
+        completed: false,
+        failed: false
       },
       {
         id: 102,
-        title: "Fix Navbar Bug",
-        category: "development",
-        description: "Resolve overlapping menu issue on mobile screens.",
-        status: true
+        taskTitle: "Fix Navbar Bug",
+        category: "Development",
+        taskDescription: "Resolve overlapping menu issue on mobile screens.",
+        taskDate: "2025-12-14",
+        active: false,
+        newTask: false,
+        completed: true,
+        failed: false
       }
     ]
   },
@@ -26,20 +40,34 @@ const employeesData = [
     name: "Sara",
     email: "sara@mail.com",
     password: "abcd",
+    taskCount: {
+      active: 1,
+      failed: 0,
+      completed: 1,
+      newTask: 1
+    },
     tasks: [
       {
         id: 103,
-        title: "Make UI UX Wireframe",
-        category: "design",
-        description: "Design dashboard wireframe in Figma.",
-        status: false
+        taskTitle: "Make UI UX Wireframe",
+        category: "Design",
+        taskDescription: "Design dashboard wireframe in Figma.",
+        taskDate: "2025-12-13",
+        active: true,
+        newTask: true,
+        completed: false,
+        failed: false
       },
       {
         id: 104,
-        title: "Redesign Login Screen",
-        category: "design",
-        description: "Improve spacing, layout, and typography.",
-        status: true
+        taskTitle: "Redesign Login Screen",
+        category: "Design",
+        taskDescription: "Improve spacing, layout, and typography.",
+        taskDate: "2025-12-12",
+        active: false,
+        newTask: false,
+        completed: true,
+        failed: false
       }
     ]
   },
@@ -48,13 +76,23 @@ const employeesData = [
     name: "Usman",
     email: "usman@mail.com",
     password: "1111",
+    taskCount: {
+      active: 1,
+      failed: 0,
+      completed: 0,
+      newTask: 1
+    },
     tasks: [
       {
         id: 105,
-        title: "Fix API Integration",
-        category: "development",
-        description: "Resolve API response delay issues.",
-        status: false
+        taskTitle: "Fix API Integration",
+        category: "Development",
+        taskDescription: "Resolve API response delay issues.",
+        taskDate: "2025-12-11",
+        active: true,
+        newTask: true,
+        completed: false,
+        failed: false
       }
     ]
   },
@@ -63,13 +101,23 @@ const employeesData = [
     name: "Hira",
     email: "hira@mail.com",
     password: "pass",
+    taskCount: {
+      active: 0,
+      failed: 0,
+      completed: 1,
+      newTask: 0
+    },
     tasks: [
       {
         id: 106,
-        title: "Design App Logo",
-        category: "design",
-        description: "Create a minimal logo for the mobile app.",
-        status: true
+        taskTitle: "Design App Logo",
+        category: "Design",
+        taskDescription: "Create a minimal logo for the mobile app.",
+        taskDate: "2025-12-10",
+        active: false,
+        newTask: false,
+        completed: true,
+        failed: false
       }
     ]
   },
@@ -78,20 +126,34 @@ const employeesData = [
     name: "Bilal",
     email: "bilal@mail.com",
     password: "0000",
+    taskCount: {
+      active: 1,
+      failed: 0,
+      completed: 1,
+      newTask: 1
+    },
     tasks: [
       {
         id: 107,
-        title: "Penetration Test",
-        category: "cyber",
-        description: "Run vulnerability scans on admin panel.",
-        status: false
+        taskTitle: "Penetration Test",
+        category: "Cyber",
+        taskDescription: "Run vulnerability scans on admin panel.",
+        taskDate: "2025-12-09",
+        active: true,
+        newTask: true,
+        completed: false,
+        failed: false
       },
       {
         id: 108,
-        title: "Check Firewall Rules",
-        category: "cyber",
-        description: "Review inbound and outbound filter settings.",
-        status: true
+        taskTitle: "Check Firewall Rules",
+        category: "Cyber",
+        taskDescription: "Review inbound and outbound filter settings.",
+        taskDate: "2025-12-08",
+        active: false,
+        newTask: false,
+        completed: true,
+        failed: false
       }
     ]
   },
@@ -100,13 +162,23 @@ const employeesData = [
     name: "Zain",
     email: "zain@mail.com",
     password: "z123",
+    taskCount: {
+      active: 1,
+      failed: 0,
+      completed: 0,
+      newTask: 1
+    },
     tasks: [
       {
         id: 109,
-        title: "Create Authentication Flow",
-        category: "development",
-        description: "Implement login, signup, and access logic.",
-        status: false
+        taskTitle: "Create Authentication Flow",
+        category: "Development",
+        taskDescription: "Implement login, signup, and access logic.",
+        taskDate: "2025-12-07",
+        active: true,
+        newTask: true,
+        completed: false,
+        failed: false
       }
     ]
   },
@@ -115,24 +187,41 @@ const employeesData = [
     name: "Ayesha",
     email: "ayesha@mail.com",
     password: "321",
+    taskCount: {
+      active: 1,
+      failed: 0,
+      completed: 1,
+      newTask: 1
+    },
     tasks: [
       {
         id: 110,
-        title: "Improve Dashboard Layout",
-        category: "design",
-        description: "Refine spacing and component hierarchy.",
-        status: true
+        taskTitle: "Improve Dashboard Layout",
+        category: "Design",
+        taskDescription: "Refine spacing and component hierarchy.",
+        taskDate: "2025-12-06",
+        active: false,
+        newTask: false,
+        completed: true,
+        failed: false
       },
       {
         id: 111,
-        title: "Color Palette Update",
-        category: "design",
-        description: "Update UI brand colors to new style guide.",
-        status: false
+        taskTitle: "Color Palette Update",
+        category: "Design",
+        taskDescription: "Update UI brand colors to new style guide.",
+        taskDate: "2025-12-05",
+        active: true,
+        newTask: true,
+        completed: false,
+        failed: false
       }
     ]
   }
 ];
+
+
+
 const adminData = [
   {
     id: 1,
@@ -140,6 +229,7 @@ const adminData = [
     password: 123
   }
 ];
+
 
 
 export const setEmployeeData=()=>{

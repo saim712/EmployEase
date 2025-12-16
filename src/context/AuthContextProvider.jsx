@@ -8,7 +8,8 @@ function AuthContext({children}) {
   useEffect(() => {
     let authdata=getEmployeeData();
     setauthData(authdata);
-    // console.log(auth)
+    console.log(typeof auth)
+    console.log(auth)
   }, [])
   // console.log(auth)
   return (

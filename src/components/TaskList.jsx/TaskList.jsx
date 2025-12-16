@@ -1,23 +1,48 @@
-import React from "react";
+import React,{useState,useContext,useEffect} from "react";
+import { AuthDataContext } from "../../context/AuthContextProvider";
+import AcceptTask from "./AcceptTask";
+import NewTask from "./NewTask";
+import CompleteTask from "./CompleteTask";
+import FailedTask from "./FailedTask";
 
-function TaskList() {
+function TaskList({data}) {
+  const [tasklist, setTasklist] = useState(null);
+    
+    const taskstat=useContext(AuthDataContext);
+    useEffect(() => {
+        if(taskstat){
+          // console.log("searching for employees")
+          // console.log(data)
+          const employee = taskstat.find(elem => elem.name === data);
+          setTasklist(employee ? employee : null);
+        }
+      }, [taskstat,data])
+        console.log(tasklist)
   return (
     <>
       <div
         id="tasklist"
-        className=" overflow-x-auto flex justify-between gap-7  h-80 my-5 py-1 px-15"
+        className=" overflow-x-auto flex justify-between transition-transform duration-200 translate-x-20 gap-7  h-auto my-5 py-1 px-15"
       >
-        <div className="card bg-slate-400 text-center text-teal-200 p-6 h-full shrink-0 rounded-sm w-[40%] ">
-          <div className="flex justify-between items-center">
-            <h2 className="bg-slate-600 p-1 rounded-md">Importance</h2>
-            <p className="">Dec 12 2025</p>
-          </div>
-          <h1 className="mt-5 mb-4 text-3xl font-semibold">Title of what is purpose</h1>
-          <p className="text-[1.1em]">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
-            dignissimos doloremque quaerat enim at. Ipsa?
-          </p>
-        </div>
+        {tasklist && tasklist.tasks.map((elem,id)=>{
+
+            if (elem.active) {
+              return <AcceptTask key={id} data={elem}/>
+            }
+            if(elem.failed){
+              return <FailedTask key={id} data={elem}/>
+            }
+             if(elem.completed){
+              return <CompleteTask key={id} data={elem}/>
+            }
+             if(elem.newTak){
+              return <NewTask key={id} data={elem}/>
+            }
+            
+          
+        })}
+
+      
       </div>
     </>
   );

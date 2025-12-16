@@ -25,18 +25,15 @@ const App = () => {
 
   return (
     <>
-    <Routes>
-    {/* <div className=''> */}
-      {/* Assalamoalaikm */}
-      {/* <Login/> */}
-      {/* <EmployeeDashboard/> */}
-      {/* <AdminDashboard/> */}
-    {/* </div> */}
+   <div className='overflow-hidden'>
+     <Routes >
+
     <Route element={<Login/>} path='/'/>
     <Route element={<AdminDashboard />} path='/admin'/>
     <Route element={<EmployeeDashboard />} path='/employ'/>
     <Route element={<NotFound/>} path='*'/>
     </Routes>
+   </div>
     </>
   )
 }
