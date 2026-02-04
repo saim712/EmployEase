@@ -1,8 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
-#tasklist::-webkit-scrollbar {
-  display: none;
+:root {
+  --primary: #4f46e5;
+  /* indigo-600 */
+  --secondary: #0d9488;
+  /* teal-600 */
+  --error: #dc2626;
+  /* red-600 */
+  --success: #16a34a;
+  /* green-600 */
+  --bg-gray: #f9fafb;
 }
-#alltask::-webkit-scrollbar{
-  display: none;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-gray);
+  color: #111827;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Form Styles to prevent overlaps */
+input,
+select,
+textarea {
+  display: block;
+  width: 100%;
 }
