@@ -18,12 +18,6 @@ yarn.lock
 *~
 .DS_Store
 
-# Build output
-dist/
-build/
-*.js
-!webpack.config.js
-
 # Logs
 logs/
 *.log
