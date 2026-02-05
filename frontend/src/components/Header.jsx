@@ -11,49 +11,55 @@ function Header({ data }) {
   };
 
   return (
-    <header className="bg-white border-b border-gray-200">
+    <header className="sticky top-0 z-50 w-full glass border-b border-slate-200/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-16 sm:h-20">
           {/* Logo & Brand */}
-          <Link to="/" className="flex items-center space-x-3 hover:opacity-90 transition-opacity">
-            <div className="flex items-center justify-center w-10 h-10 bg-indigo-600 rounded-lg shadow-md">
-              <span className="text-white font-bold text-lg">E</span>
+          <Link to="/" className="flex items-center space-x-3.5 hover:opacity-90 transition-all duration-200">
+            <div className="flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 bg-gradient-to-br from-indigo-600 to-violet-600 rounded-xl shadow-lg shadow-indigo-600/20">
+              <span className="text-white font-black text-xl">E</span>
             </div>
-            <div className="hidden sm:block">
-              <h1 className="text-xl font-extrabold text-gray-900 leading-none">
+            <div className="hidden xs:block">
+              <h1 className="text-xl font-black text-slate-900 leading-none tracking-tight">
                 EmployEase
               </h1>
-              <span className="text-[10px] text-indigo-600 font-bold uppercase tracking-wider">
-                Management
+              <span className="text-[10px] text-indigo-500 font-bold uppercase tracking-[0.15em] mt-1 block">
+                Enterprise
               </span>
             </div>
           </Link>
 
           {/* User Info & Actions */}
-          <div className="flex items-center space-x-2 sm:space-x-4">
+          <div className="flex items-center space-x-3 sm:space-x-5">
             {/* Notification Placeholder */}
-            <button className="p-2 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-full transition-all">
+            <button className="relative p-2.5 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-xl transition-all duration-200 group">
               <FiBell className="w-5 h-5" />
+              <span className="absolute top-2.5 right-2.5 w-2 h-2 bg-rose-500 rounded-full border-2 border-white group-hover:scale-110 transition-transform"></span>
             </button>
 
             {/* Profile Section */}
-            <div className="flex items-center space-x-3 pl-2 sm:pl-4 border-l border-gray-100">
-              <div className="flex flex-col text-right hidden lg:block">
-                <p className="text-sm font-bold text-gray-900">{data}</p>
-                <p className="text-[10px] text-gray-500 font-medium">Active Now</p>
+            <div className="flex items-center gap-3 pl-3 sm:pl-5 border-l border-slate-200">
+              <div className="flex flex-col text-right hidden sm:flex">
+                <p className="text-xs font-bold text-slate-900 leading-tight">{data}</p>
+                <div className="flex items-center justify-end gap-1.5 mt-0.5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
+                  <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Online</p>
+                </div>
               </div>
-              <div className="flex items-center justify-center w-10 h-10 bg-indigo-100 rounded-full border-2 border-white shadow-sm ring-1 ring-gray-100">
-                <FiUser className="w-6 h-6 text-indigo-600" />
+              <div className="flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 bg-slate-100 rounded-2xl border-2 border-white shadow-sm ring-1 ring-slate-100/50 overflow-hidden transform transition hover:rotate-3 duration-200">
+                <div className="w-full h-full bg-indigo-50 flex items-center justify-center">
+                  <FiUser className="w-5 h-5 text-indigo-500" />
+                </div>
               </div>
             </div>
 
             {/* Logout Button */}
             <button
               onClick={handleLogOut}
-              className="ml-2 flex items-center space-x-2 px-3 sm:px-4 py-2 bg-white hover:bg-red-50 text-red-600 border border-red-100 hover:border-red-200 text-sm font-bold rounded-lg transition-all"
+              className="flex items-center justify-center p-2.5 sm:px-4 sm:py-2.5 bg-slate-900 hover:bg-rose-600 text-white text-sm font-bold rounded-xl transition-all duration-200 shadow-lg shadow-slate-900/10 hover:shadow-rose-600/20 active:scale-95"
             >
-              <FiLogOut className="w-4 h-4" />
-              <span className="hidden sm:inline">Logout</span>
+              <FiLogOut className="w-4 h-4 sm:mr-2" />
+              <span className="hidden sm:inline">Sign Out</span>
             </button>
           </div>
         </div>

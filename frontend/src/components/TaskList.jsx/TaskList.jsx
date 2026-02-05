@@ -17,7 +17,7 @@ function TaskList({ tasks, onTaskUpdate }) {
   return (
     <div
       id="tasklist"
-      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-1"
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10"
     >
       {tasks.map((elem) => {
         if (elem.status === 'new') {

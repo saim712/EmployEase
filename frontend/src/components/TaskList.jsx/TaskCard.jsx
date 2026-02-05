@@ -49,24 +49,41 @@ function TaskCard({ tasks }) {
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
       {cards.map((card, index) => {
         const Icon = card.icon;
         return (
           <div
             key={index}
-            className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 relative overflow-hidden group hover:shadow-md transition-shadow"
+            className="group relative bg-white rounded-[2.5rem] border border-slate-100 p-8 shadow-xl shadow-slate-200/40 hover:shadow-2xl hover:shadow-slate-200/60 hover:-translate-y-1.5 transition-all duration-300"
           >
-            {/* Top Accent Bar */}
-            <div className={`absolute top-0 left-0 w-full h-1.5 ${card.accent}`}></div>
+            {/* Background Decoration */}
+            <div className={`absolute -bottom-6 -right-6 w-24 h-24 ${card.bg} rounded-full opacity-0 group-hover:opacity-20 blur-2xl transition-opacity duration-500`}></div>
 
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-1">{card.title}</p>
-                <p className={`text-3xl font-extrabold ${card.color}`}>{card.count}</p>
+            <div className="flex flex-col h-full relative z-10">
+              <div className="flex items-center justify-between mb-8">
+                <div className={`w-14 h-14 ${card.bg} ${card.color} rounded-2xl flex items-center justify-center shadow-lg shadow-current/5 border border-white/50 group-hover:scale-110 transition-transform duration-300`}>
+                  <Icon className="w-7 h-7" />
+                </div>
+                {/* Visual Status Indicator */}
+                <div className="flex gap-1">
+                  <div className={`w-1 h-3 rounded-full ${card.accent} opacity-20`}></div>
+                  <div className={`w-1 h-5 rounded-full ${card.accent} opacity-40`}></div>
+                  <div className={`w-1 h-3 rounded-full ${card.accent} opacity-20`}></div>
+                </div>
               </div>
-              <div className={`w-12 h-12 ${card.bg} ${card.color} rounded-xl flex items-center justify-center shadow-inner`}>
-                <Icon className="w-6 h-6" />
+
+              <div>
+                <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-1.5">{card.title} Missions</p>
+                <div className="flex items-end gap-2">
+                  <span className={`text-4xl font-black text-slate-900 tracking-tighter`}>{card.count}</span>
+                  <span className="text-xs font-bold text-slate-300 mb-1.5">assignments</span>
+                </div>
+              </div>
+
+              {/* Progress Line Simulation */}
+              <div className="mt-6 w-full h-1 bg-slate-50 rounded-full overflow-hidden">
+                <div className={`h-full ${card.accent} w-1/3 opacity-20 group-hover:w-full transition-all duration-700`}></div>
               </div>
             </div>
           </div>

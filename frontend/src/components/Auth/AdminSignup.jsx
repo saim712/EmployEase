@@ -62,46 +62,52 @@ function AdminSignup() {
     };
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-md w-full">
+        <div className="min-h-screen flex items-center justify-center bg-slate-50/50 relative overflow-hidden">
+            {/* Background decorative elements */}
+            <div className="absolute top-0 -left-4 w-72 h-72 bg-rose-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+            <div className="absolute top-0 -right-4 w-72 h-72 bg-red-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+
+            <div className="max-w-md w-full px-6 relative z-10">
                 {/* Logo and Header */}
-                <div className="text-center mb-10">
-                    <div className="flex justify-center mb-6">
-                        <div className="h-16 w-16 bg-red-600 rounded-2xl flex items-center justify-center shadow-lg transform transition hover:scale-105">
-                            <FiShield className="h-8 w-8 text-white" />
+                <div className="text-center mb-8">
+                    <div className="flex justify-center mb-4">
+                        <div className="h-14 w-14 bg-gradient-to-br from-rose-600 to-red-600 rounded-2xl flex items-center justify-center shadow-lg transform transition hover:scale-105 active:scale-95 duration-200">
+                            <FiShield className="h-7 w-7 text-white" />
                         </div>
                     </div>
-                    <h2 className="text-4xl font-black text-gray-900 tracking-tight mb-2">
-                        Admin Console
+                    <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                        Admin Portal
                     </h2>
-                    <p className="text-sm font-semibold text-gray-500 uppercase tracking-widest">
+                    <p className="text-slate-500 font-medium text-sm mt-1">
                         System Administrator Registration
                     </p>
                 </div>
 
                 {/* Signup Card */}
-                <div className="bg-white py-12 px-10 shadow-2xl rounded-3xl border border-gray-100">
-                    <form className="space-y-6" onSubmit={handleSubmit}>
+                <div className="bg-white/80 backdrop-blur-xl p-8 shadow-2xl rounded-3xl border border-white/50">
+                    <form className="space-y-5" onSubmit={handleSubmit}>
                         {error && (
-                            <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded-lg animate-pulse">
-                                <p className="text-sm text-red-700 font-bold">{error}</p>
+                            <div className="bg-rose-50 border border-rose-100 p-3 rounded-xl flex items-center gap-3 animate-in fade-in slide-in-from-top-1 duration-300">
+                                <div className="w-1.5 h-1.5 rounded-full bg-rose-500"></div>
+                                <p className="text-xs text-rose-600 font-semibold">{error}</p>
                             </div>
                         )}
                         {success && (
-                            <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded-lg">
-                                <p className="text-sm text-green-700 font-bold">{success}</p>
+                            <div className="bg-emerald-50 border border-emerald-100 p-3 rounded-xl flex items-center gap-3 animate-in fade-in slide-in-from-top-1 duration-300">
+                                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+                                <p className="text-xs text-emerald-600 font-semibold">{success}</p>
                             </div>
                         )}
 
-                        <div className="space-y-5">
+                        <div className="space-y-4">
                             {/* Full Name */}
-                            <div className="relative">
-                                <label htmlFor="name" className="block text-sm font-bold text-gray-700 mb-2">
+                            <div className="space-y-1.5">
+                                <label htmlFor="name" className="block text-xs font-bold text-slate-700 uppercase tracking-wider ml-1">
                                     Administrative Name
                                 </label>
                                 <div className="relative group">
                                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                        <BsPerson className="h-5 w-5 text-gray-400 group-focus-within:text-red-600 transition-colors" />
+                                        <BsPerson className="h-5 w-5 text-slate-400 group-focus-within:text-rose-600 transition-colors" />
                                     </div>
                                     <input
                                         id="name"
@@ -109,20 +115,20 @@ function AdminSignup() {
                                         required
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
-                                        className="block w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl text-gray-900 font-semibold placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-red-100 focus:border-red-600 transition-all text-base"
+                                        className="block w-full pl-11 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 font-medium placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-rose-500/10 focus:border-rose-500 focus:bg-white transition-all duration-200 text-sm"
                                         placeholder="Admin Contact Name"
                                     />
                                 </div>
                             </div>
 
                             {/* Email */}
-                            <div className="relative">
-                                <label htmlFor="email" className="block text-sm font-bold text-gray-700 mb-2">
+                            <div className="space-y-1.5">
+                                <label htmlFor="email" className="block text-xs font-bold text-slate-700 uppercase tracking-wider ml-1">
                                     Official Admin Email
                                 </label>
                                 <div className="relative group">
                                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                        <MdEmail className="h-5 w-5 text-gray-400 group-focus-within:text-red-600 transition-colors" />
+                                        <MdEmail className="h-5 w-5 text-slate-400 group-focus-within:text-rose-600 transition-colors" />
                                     </div>
                                     <input
                                         id="email"
@@ -130,51 +136,52 @@ function AdminSignup() {
                                         required
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
-                                        className="block w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl text-gray-900 font-semibold placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-red-100 focus:border-red-600 transition-all text-base"
+                                        className="block w-full pl-11 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 font-medium placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-rose-500/10 focus:border-rose-500 focus:bg-white transition-all duration-200 text-sm"
                                         placeholder="admin@enterprise.com"
                                     />
                                 </div>
                             </div>
 
                             {/* Password */}
-                            <div className="relative">
-                                <label htmlFor="password" className="block text-sm font-bold text-gray-700 mb-2">
-                                    Security Password
-                                </label>
-                                <div className="relative group">
-                                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                        <RiLockPasswordFill className="h-5 w-5 text-gray-400 group-focus-within:text-red-600 transition-colors" />
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div className="space-y-1.5">
+                                    <label htmlFor="password" className="block text-xs font-bold text-slate-700 uppercase tracking-wider ml-1">
+                                        Password
+                                    </label>
+                                    <div className="relative group">
+                                        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                            <RiLockPasswordFill className="h-4 w-4 text-slate-400 group-focus-within:text-rose-600 transition-colors" />
+                                        </div>
+                                        <input
+                                            id="password"
+                                            type="password"
+                                            required
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
+                                            className="block w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 font-medium placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-rose-500/10 focus:border-rose-500 focus:bg-white transition-all duration-200 text-sm"
+                                            placeholder="••••••••"
+                                        />
                                     </div>
-                                    <input
-                                        id="password"
-                                        type="password"
-                                        required
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                        className="block w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl text-gray-900 font-semibold placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-red-100 focus:border-red-600 transition-all text-base"
-                                        placeholder="Minimum 6 chars"
-                                    />
                                 </div>
-                            </div>
 
-                            {/* Confirm Password */}
-                            <div className="relative">
-                                <label htmlFor="confirmPassword" className="block text-sm font-bold text-gray-700 mb-2">
-                                    Confirm Credentials
-                                </label>
-                                <div className="relative group">
-                                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                        <RiLockPasswordFill className="h-5 w-5 text-gray-400 group-focus-within:text-red-600 transition-colors" />
+                                <div className="space-y-1.5">
+                                    <label htmlFor="confirmPassword" className="block text-xs font-bold text-slate-700 uppercase tracking-wider ml-1">
+                                        Confirm
+                                    </label>
+                                    <div className="relative group">
+                                        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                            <RiLockPasswordFill className="h-4 w-4 text-slate-400 group-focus-within:text-rose-600 transition-colors" />
+                                        </div>
+                                        <input
+                                            id="confirmPassword"
+                                            type="password"
+                                            required
+                                            value={confirmPassword}
+                                            onChange={(e) => setConfirmPassword(e.target.value)}
+                                            className="block w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 font-medium placeholder-slate-400 focus:outline-none focus:ring-4 focus:ring-rose-500/10 focus:border-rose-500 focus:bg-white transition-all duration-200 text-sm"
+                                            placeholder="••••••••"
+                                        />
                                     </div>
-                                    <input
-                                        id="confirmPassword"
-                                        type="password"
-                                        required
-                                        value={confirmPassword}
-                                        onChange={(e) => setConfirmPassword(e.target.value)}
-                                        className="block w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl text-gray-900 font-semibold placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-red-100 focus:border-red-600 transition-all text-base"
-                                        placeholder="Re-type password"
-                                    />
                                 </div>
                             </div>
                         </div>
@@ -182,29 +189,30 @@ function AdminSignup() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="w-full flex justify-center py-4 px-4 border border-transparent text-base font-black rounded-xl text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-200 transition-all shadow-xl active:scale-[0.98] disabled:bg-red-400"
+                            className="w-full flex justify-center items-center py-3.5 px-4 bg-rose-600 hover:bg-rose-700 text-white text-sm font-bold rounded-2xl shadow-lg shadow-rose-600/20 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 disabled:bg-rose-400 disabled:shadow-none"
                         >
                             {loading ? (
-                                <div className="w-6 h-6 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+                                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                             ) : (
                                 'Activate Admin Status'
                             )}
                         </button>
                     </form>
 
-                    <div className="mt-10 border-t border-gray-100 pt-8">
-                        <div className="mt-2 text-center">
-                            <Link
-                                to="/"
-                                className="inline-flex items-center text-sm font-extrabold text-red-600 hover:text-red-700 transition-colors"
-                            >
-                                Registered? Return to Gate
-                            </Link>
-                        </div>
+                    <div className="mt-8 pt-6 border-t border-slate-100 text-center">
+                        <p className="text-sm font-medium text-slate-500">
+                            Already registered?
+                        </p>
+                        <Link
+                            to="/"
+                            className="mt-3 inline-flex items-center text-sm font-bold text-rose-600 hover:text-rose-700 transition-colors"
+                        >
+                            Return to Access Gate
+                        </Link>
                     </div>
                 </div>
 
-                <p className="mt-12 text-center text-[10px] font-bold text-gray-400 uppercase tracking-[0.2em]">
+                <p className="mt-8 text-center text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">
                     Restricted Enterprise Access Only
                 </p>
             </div>
